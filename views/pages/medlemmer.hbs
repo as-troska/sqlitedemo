@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h1>Medlemsliste</h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>Fornavn</td>
+            <td>Etternavn</td>
+            <td>Gateadresse</td>
+            <td>Postnummer</td>
+            <td>Poststed</td>
+            <td>Avgift</td>
+            <td>Fodselsdato</td>
+        </tr>
+
+
+        
+    </thead>
+    <tbody>
+                {{#each medlemmer}}
+            <tr>
+                <td>{{this.fornavn}}</td>
+                <td>{{this.etternavn}}</td>
+                <td>{{this.gateadresse}}</td>
+                <td>{{this.postnummer}}</td>
+                <td>{{this.poststed}}</td>
+                <td>{{this.avgift}}</td>
+                <td>{{this.fodselsdato}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+</body>
+</html>
