@@ -1,4 +1,3 @@
-const { application } = require("express");
 const express = require("express");
 const db = require("better-sqlite3")("database.db", {verbose: console.log});
 const hbs = require("hbs");
