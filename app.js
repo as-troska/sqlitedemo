@@ -1,3 +1,4 @@
+const { application } = require("express");
 const express = require("express");
 const db = require("better-sqlite3")("database.db", {verbose: console.log});
 const hbs = require("hbs");
@@ -13,6 +14,20 @@ app.use(express.urlencoded({extended: true}))
 // hbs.registerPartials(path.join(__dirname, "./views/partials"))
 
 
+app.post("/settinn", (req, res) => {
+    console.log(req.body)
+    let svar = req.body
+    let avgift = 0;
+
+    if (svar.avgift == "on") {
+         avgift = 1
+    } else {
+        avgift = 0
+    }
+    settInnMedlem(svar.fornavn, svar.etternavn, svar.gateadresse, svar.postnummer, svar.poststed, avgift, svar.fodselsdato)
+    res.redirect("back")
+})
+
 
 let medlemmer = db.prepare("SELECT * FROM medlemmer WHERE fornavn = ?");
 medlemmer = medlemmer.all(1);
@@ -27,6 +42,8 @@ settInnMedlem()
 //
 
 console.log(medlemmer)
-
+app.listen(3000, () => {
+    console.log("Sørver køyrer")
+})
 
 
